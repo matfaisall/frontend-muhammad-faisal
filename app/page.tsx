@@ -97,7 +97,7 @@ export default function Home() {
       <Card className="max-w-md w-full">
         <CardHeader>
           <h2 className="font-bold text-green-500 text-center text-xl">
-            Search Your Product
+            Search And Calculate Product
           </h2>
         </CardHeader>
         <CardContent>
