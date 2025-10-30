@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // ini sebenarnya lebih bagus di taruh di .env
-const API_BASE = "http://202.157.176.100:3001";
+const API_BASE = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const fetchCountries = async () => {
   const res = await axios.get(`${API_BASE}/negaras`);
