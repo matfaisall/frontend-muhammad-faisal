@@ -5,9 +5,9 @@ import React from "react";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import SelectInputCountry from "@/components/shared/SelectInputCountry";
-import SelectInputPort from "@/components/shared/SelectInputPort";
-import SelectInputProduct from "@/components/shared/SelectInputProduct";
+import SelectInputCountry from "@/components/shared/select-input/SelectInputCountry";
+import SelectInputPort from "@/components/shared/select-input/SelectInputPort";
+import SelectInputProduct from "@/components/shared/select-input/SelectInputProduct";
 import { fetchCountries, fetchPorts, fetchProducts } from "@/lib/api";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -27,7 +27,7 @@ export default function Home() {
     total: "",
   });
 
-  console.log("formdata", formData);
+  // console.log("formdata", formData);
 
   React.useEffect(() => {
     fetchCountries().then((res) => {
@@ -89,7 +89,7 @@ export default function Home() {
     }
   }, [formData.barang, products]);
 
-  console.log("ports", ports);
+  // console.log("ports", ports);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -103,23 +103,26 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-4">
             <SelectInputCountry
               label="Negara"
+              placeholder="Select Country"
+              value={formData.negara}
               options={countries}
               onChange={(val) => setFormData({ ...formData, negara: val })}
-              value={formData.negara}
             />
-
             <SelectInputPort
               label="Pelabuhan"
-              options={ports}
+              placeholder="Select Port"
               value={formData?.pelabuhan}
+              options={ports}
               onChange={(val) => setFormData({ ...formData, pelabuhan: val })}
-              // disabled={!formData.negara}
+              disabled={!formData.negara}
             />
             <SelectInputProduct
               label="Product"
-              options={products}
+              placeholder="Select Product"
               value={formData?.barang}
+              options={products}
               onChange={(val) => setFormData({ ...formData, barang: val })}
+              disabled={!formData.pelabuhan}
             />
             <div className="col-span-2">
               <div className="space-y-2">

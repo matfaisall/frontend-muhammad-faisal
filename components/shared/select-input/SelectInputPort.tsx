@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
 
@@ -11,40 +10,26 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 
-interface Option {
-  id_negara: string;
-  id_pelabuhan: string;
-  nama_pelabuhan: string;
-}
-
-interface SelectInputPortProps {
-  label: string;
-  options: Option[];
-  placeholder?: string;
-  disabled?: boolean;
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
-  onSelect?: (value: string) => void;
-}
+import { OptionPort, SelectInputPortProps } from "./SelectInput.type";
 
 const SelectInputPort = ({
   label,
-  options,
-  disabled = false,
+  placeholder,
   value,
+  options,
   onChange,
   error,
+  disabled = false,
 }: SelectInputPortProps) => {
   return (
     <div className="space-y-2">
       <Label className="text-sm font-light text-gray-500">{label}</Label>
       <Select value={value} onValueChange={onChange} disabled={disabled}>
         <SelectTrigger className="w-full">
-          <SelectValue placeholder="Pelabuhan" />
+          <SelectValue placeholder={placeholder || ""} />
         </SelectTrigger>
         <SelectContent>
-          {options?.map((option) => (
+          {options?.map((option: OptionPort) => (
             <React.Fragment key={option?.id_pelabuhan}>
               <SelectItem value={option?.id_pelabuhan}>
                 {option?.nama_pelabuhan}
