@@ -22,7 +22,7 @@ const SelectInputCountry = ({
 }: SelectInputCountryProps) => {
   return (
     <div className="space-y-2">
-      <Label className="text-sm font-medium text-gray-500">{label}</Label>
+      <Label className="text-sm font-light text-gray-500">{label}</Label>
       <Select value={value} onValueChange={onChange} disabled={disabled}>
         <SelectTrigger className="w-full">
           <SelectValue placeholder={placeholder || ""} />

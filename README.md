@@ -1,6 +1,6 @@
 ## About this Project
 
-frontend test
+FRONTEND TEST : SEARCH AND CALCULATE PRODUCT - SIMPLE AND CLEAN
 
 ## Getting Started
 
