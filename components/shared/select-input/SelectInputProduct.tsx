@@ -30,7 +30,7 @@ const SelectInputProduct = ({
           {options?.map((option: OptionProduct) => (
             <React.Fragment key={option?.id_barang}>
               <SelectItem value={option?.id_barang.toString()}>
-                {option?.nama_barang}
+                {option?.id_barang} - {option?.nama_barang}
               </SelectItem>
             </React.Fragment>
           ))}
