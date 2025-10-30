@@ -10,7 +10,7 @@ import SelectInputPort from "@/components/shared/select-input/SelectInputPort";
 import SelectInputProduct from "@/components/shared/select-input/SelectInputProduct";
 import { fetchCountries, fetchPorts, fetchProducts } from "@/lib/api";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
+import InputGroupWithIcon from "@/components/shared/text-input/InputGroupWithIcon";
 
 export default function Home() {
   const [countries, setCountries] = React.useState<any[]>([]);
@@ -90,6 +90,7 @@ export default function Home() {
   }, [formData.barang, products]);
 
   // console.log("ports", ports);
+  console.log("formdata", formData);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -132,20 +133,26 @@ export default function Home() {
                 <Textarea value={formData?.description} readOnly disabled />
               </div>
             </div>
-            <div className="space-y-2">
-              <Label className="text-gray-500 text-sm font-light">Harga</Label>
-              <Input value={formData?.harga} readOnly disabled />
-            </div>
-            <div className="space-y-2">
-              <Label className="text-gray-500 text-sm font-light">
-                Discount
-              </Label>
-              <Input value={formData?.discount} readOnly disabled />
-            </div>
-            <div className="space-y-2">
-              <Label className="text-gray-500 text-sm font-light">Total</Label>
-              <Input value={formData?.total} readOnly disabled />
-            </div>
+
+            <InputGroupWithIcon
+              label="Discount"
+              value={formData?.discount}
+              placeholder="Input discount"
+              align="inline-end"
+            />
+
+            <InputGroupWithIcon
+              label="Harga"
+              value={formData?.harga}
+              placeholder="Input harga"
+            />
+
+            <InputGroupWithIcon
+              label="Total"
+              value={formData?.total}
+              placeholder="Input nominal"
+              align="inline-start"
+            />
           </div>
         </CardContent>
       </Card>
